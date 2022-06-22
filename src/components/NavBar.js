@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <>
             <img style={styles.imagen} src={logo} alt="" />
-            <h1 style={styles.Tittle}>Venta indumentaria</h1>
+            <h1 style={styles.Tittle}>Venta indumentaria.</h1>
             <nav style={styles.navStyle}>
                 <a style={styles.navStyle}href="inicio">Inicio</a>
                 <a style={styles.navStyle}href="ofertas">Ofertas</a>

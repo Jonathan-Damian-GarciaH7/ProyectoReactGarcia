@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../components/logo.png';
+import CartWidget from "./CartWidget";
 //import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ItemListContainer from './ItemListContainer'
 
@@ -14,6 +15,7 @@ const NavBar = () => {
                 <a style={styles.navStyle}href="inicio">Inicio</a>
                 <a style={styles.navStyle}href="ofertas">Ofertas</a>
                 <a style={styles.navStyle}href="consultas">Consultas</a>
+                <CartWidget/>
             </nav>
              
             <ItemListContainer numeroTelefono= '11223344' comprarItem={comprar}/>

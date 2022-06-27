@@ -8,7 +8,7 @@ const Datos = ({ numeroTelefono, comprarItem}) => {
            <p style={styles.navStyle}>Numero telefonico:{numeroTelefono}</p>
 
             <a style={styles.navStyle}>
-           < button onClick={comprarItem}>Comprar</button>
+           
             </a>
 
         </>
@@ -30,3 +30,4 @@ const styles = {
 
 
 }
+//< button onClick={comprarItem}>Comprar</button>

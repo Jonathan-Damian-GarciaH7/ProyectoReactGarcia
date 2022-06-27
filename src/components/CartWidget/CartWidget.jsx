@@ -1,12 +1,12 @@
 import React from "react";
-import Cart from "./carrito.png";
+import Cart from "../../assets/carrito.png"
 
 const CartWidget = () => {
 
     return (
-        <div>
+       
            < img src={Cart} style={styles.Cart} alt="shopping cart" />
-        </div>
+        
     )
 }
 
@@ -17,6 +17,10 @@ const styles = {
     Cart:{
 
         width: '5%',
+        margin: 'auto',
+        display:'flex',
+        justifyContent: 'flex-end',
+
 
     },
 

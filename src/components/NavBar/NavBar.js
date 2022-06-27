@@ -1,8 +1,9 @@
+
 import React from "react";
-import logo from '../components/logo.png';
-import CartWidget from "./CartWidget";
-//import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import ItemListContainer from './ItemListContainer'
+import logo from '../../assets/logo.png';
+import CartWidget from "../CartWidget/CartWidget";
+import ItemListContainer from '../ItemListContainer'
+
 
 const NavBar = () => {
 
@@ -15,29 +16,34 @@ const NavBar = () => {
                 <a style={styles.navStyle}href="inicio">Inicio</a>
                 <a style={styles.navStyle}href="ofertas">Ofertas</a>
                 <a style={styles.navStyle}href="consultas">Consultas</a>
+                <div style={styles.CartWidget}>
                 <CartWidget/>
+                </div>
             </nav>
              
-            <ItemListContainer numeroTelefono= '11223344' comprarItem={comprar}/>
-
-
+            
+           
         </header>
-        
-
-
-
     )
 }
 export default NavBar
 
 
+
+
 const styles = {
+
+    header:{
+        margin: '0',
+     
+    
+    },
    
-    navStyle:{
+  navStyle:{
         color: '#000',
         textDecoration: 'none',
         display: 'flex',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-around',
         alignItems: 'center',
     
     },
@@ -52,7 +58,9 @@ const styles = {
     imagen:{
 
         width: '10%',
+        
 
     },
+ 
     
 }

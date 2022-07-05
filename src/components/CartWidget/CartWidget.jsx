@@ -17,9 +17,7 @@ const styles = {
     Cart:{
 
         width: '5%',
-        margin: 'auto',
-        display:'flex',
-        justifyContent: 'flex-end',
+        display:'flex'
 
 
     },

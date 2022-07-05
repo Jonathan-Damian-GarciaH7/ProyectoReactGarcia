@@ -1,33 +1,33 @@
-import React from "react"
 
-const Datos = ({ numeroTelefono, comprarItem}) => {
+import React, { useEffect, useState } from 'react'
+import ItemList from './ItemList'
+import { getData } from '../components/mocks/fakeApi'
 
-    return (
-        <>
+const Datos = ({greeting}) => {
+  const [productList, setProductList]=useState([])
+  const [loading, setLoading]=useState(true)
+    const getProducts = async () => {
+      try{
+        const respuesta = await getData
+        setProductList(respuesta)
+      }catch(error){
+        console.log(error)
+      }finally{
+        setLoading(false)
+      }
+    }
 
-           <p style={styles.navStyle}>Numero telefonico:{numeroTelefono}</p>
-
-            <a style={styles.navStyle}>
-           
-            </a>
-
-        </>
-    )
+    useEffect(()=>{
+      getProducts()
+    },[])
+  
+  return (
+    <div>
+      <h1>{greeting}</h1>
+      {loading ? <p>Cargando...</p> : <ItemList productList={productList}/> }
+      
+    </div>
+  )
 }
+
 export default Datos
-
-
-const styles = {
-
-    navStyle:{
-        color: '#000',
-        textDecoration: 'none',
-        display: 'flex',
-        justifyContent: 'center',
-        
-    
-    },
-
-
-}
-//< button onClick={comprarItem}>Comprar</button>

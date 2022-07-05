@@ -9,21 +9,20 @@ const NavBar = () => {
 
     const comprar = () => console.log ('seguir comprando')
     return (
-        <header>
-            <img style={styles.imagen} src={logo} alt="logo" />
-            <h1 style={styles.Tittle}>Venta indumentaria.</h1>
-            <nav style={styles.navStyle}>
-                <a style={styles.navStyle}href="inicio">Inicio</a>
-                <a style={styles.navStyle}href="ofertas">Ofertas</a>
-                <a style={styles.navStyle}href="consultas">Consultas</a>
-                <div style={styles.CartWidget}>
+        <nav style={styles.navfondoStyle}>
+            <div style={styles.divfondoStyle}>
+                <img style={styles.imagen} src={logo} alt="logo" />
+               <ul style={styles.navStyle}>
+                    <li style={styles.navStyle}href="inicio">Inicio</li>
+                    <li style={styles.navStyle}href="ofertas">Ofertas</li>
+                    <li style={styles.navStyle}href="consultas">Consultas</li>
+                </ul>
+                
                 <CartWidget/>
-                </div>
-            </nav>
+                
+            </div>
+        </nav>
              
-            
-           
-        </header>
     )
 }
 export default NavBar
@@ -33,18 +32,25 @@ export default NavBar
 
 const styles = {
 
-    header:{
-        margin: '0',
-     
     
-    },
+ navfondoStyle:{
+    display: 'flex',
+    justifyContent:'center',
+    alingItems:'center',
+    backgroundColor:'orange',
+ },
+
+ divfondoStyle:{
+   
+ },
    
   navStyle:{
-        color: '#000',
-        textDecoration: 'none',
+        color: 'white',
+        gap: '-6',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
+        cursor: 'pointer',
     
     },
     

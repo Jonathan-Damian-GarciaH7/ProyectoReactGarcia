@@ -5,7 +5,7 @@ const ItemList = ({productList}) => {
     // const {productList}=props
   return (
     <div>
-        <div style={{color: 'white',display:'flex',justifyContent:'center'}}>
+        <div style={{color: 'black',display:'flex',justifyContent:'center'}}>
         <h3>OFERTAS</h3>
         </div>
 

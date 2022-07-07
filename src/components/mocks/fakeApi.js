@@ -1,3 +1,5 @@
+import './fakeApi.css';
+
 //Array de obj
 const products = [
     {id:'01', name:'Jean', description:"Verano", img:'https://static.dafiti.com.ar/p/wintertex-4984-680849-1-zoom.jpg', stock:3},
@@ -14,7 +16,7 @@ const products = [
       }else{
         reject('salio mal :(')
       }
-    },3000)
+    },2000)
   })
 
-  
+ 

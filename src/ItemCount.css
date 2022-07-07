@@ -1,13 +1,13 @@
 button {
-    width: 100px;
-    height: 40px;
+    width: 150px;
+    height: 60px;
     font-size: 15px;
     font-family:  sans-serif;
     font-weight: bold;
     color: rgb(0, 0, 0);
     border: 2px solid rgb(40, 39, 39);
-    border-radius: 15px;
-    margin: 5px;
+    border-radius: 05px;
+    margin: 2px;
     cursor: pointer;
     display: flex;
     align-items: center;

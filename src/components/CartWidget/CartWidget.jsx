@@ -16,8 +16,10 @@ const styles = {
 
     Cart:{
 
-        width: '5%',
-        display:'flex'
+        width: '2%',
+        display:'flex',
+        color: 'white',
+        backgroundColor:'white',
 
 
     },

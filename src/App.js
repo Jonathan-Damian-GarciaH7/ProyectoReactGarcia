@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer.js'
-
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 
 
@@ -18,7 +18,7 @@ const App= ()  => {
     <>
     <NavBar/>
     <ItemListContainer numeroTelefono= '11223344' />
-    
+    <ItemDetailContainer/>
 
     </>
   );

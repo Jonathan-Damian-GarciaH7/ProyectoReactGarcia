@@ -37,7 +37,7 @@ const styles = {
     display: 'flex',
     justifyContent:'center',
     alingItems:'center',
-    backgroundColor:'orange',
+    backgroundColor:'black',
  },
 
  divfondoStyle:{

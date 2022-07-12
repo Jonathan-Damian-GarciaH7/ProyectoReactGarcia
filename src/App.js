@@ -5,20 +5,33 @@ import ItemListContainer from './components/ItemListContainer.js'
 import ItemDetailContainer from "./components/ItemDetailContainer";
 
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
 
 const App= ()  => {
 
 
- const onAdd = (mensaje) => {
- console.log(mensaje)} // paso por medio de props la func onAdd hacia ItemCount
+
  
 
 
   return (
     <>
-    <NavBar/>
-    <ItemListContainer numeroTelefono= '11223344' />
-    <ItemDetailContainer/>
+    <BrowserRouter>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<ItemListContainer />} />
+      <Route path='/categoria/:ropaId' element = {<ItemListContainer/>}/>
+      <Route path='/categoria/:otros' element = {<ItemListContainer/>}/>
+      <Route path='/detalle/:detalleId' element = {<ItemDetailContainer/>}/>  
+    </Routes>
+    </BrowserRouter>
+   
 
     </>
   );

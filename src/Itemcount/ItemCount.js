@@ -35,8 +35,7 @@ export const ItemCount = ({stock,onAdd,initial=0}) => {
         }
     }
 
-
-
+ 
  
 
     return( //en las funciones handerclick y decrease no se agregan los parentesis ya que al ejecutar , inicia diractamente la accion , en cambio asi como esta la llama y se inicia solo cuando se haga clic.
@@ -53,5 +52,4 @@ export const ItemCount = ({stock,onAdd,initial=0}) => {
     )
 }
 export default ItemCount
-
 

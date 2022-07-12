@@ -2,25 +2,25 @@
 import React from "react";
 import logo from '../../assets/logo.png';
 import CartWidget from "../CartWidget/CartWidget";
-import ItemListContainer from '../ItemListContainer'
+import { Link, NavLink } from "react-router-dom";
+
 
 
 const NavBar = () => {
 
-    const comprar = () => console.log ('seguir comprando')
+
     return (
+        
         <nav style={styles.navfondoStyle}>
-            <div style={styles.divfondoStyle}>
-                <img style={styles.imagen} src={logo} alt="logo" />
-               <ul style={styles.navStyle}>
-                    <li style={styles.navStyle}href="inicio">Inicio</li>
-                    <li style={styles.navStyle}href="ofertas">Ofertas</li>
-                    <li style={styles.navStyle}href="consultas">Consultas</li>
-                </ul>
-                
-                <CartWidget/>
-                
-            </div>
+            
+               <Link to='/'><img style={styles.imagen} src={logo} alt="" /> </Link> 
+               
+                    <NavLink style={styles.navStyle} to='/'>Inicio </NavLink>
+                    <NavLink style={styles.navStyle} to='/categoria/otros'>Ofertas</NavLink>
+                    <NavLink style={styles.navStyle} to= '/categoria/Consultas'>Consultas</NavLink>
+                    <NavLink style={styles.navStyle} to="/CartWidget"><CartWidget/> </NavLink>
+                 
+           
         </nav>
              
     )
@@ -34,38 +34,30 @@ const styles = {
 
     
  navfondoStyle:{
-    display: 'flex',
-    justifyContent:'center',
-    alingItems:'center',
+    display:'flex',
     backgroundColor:'black',
  },
 
- divfondoStyle:{
-   
- },
+
    
   navStyle:{
         color: 'white',
-        gap: '-6',
         display: 'flex',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        cursor: 'pointer',
+        display:'flex',
+        backgroundColor:'black',
     
     },
     
     Tittle:{
-        
-        fontSize: '50',
+        fontSize: '180px',
         textAlign: 'center',
     
     },
 
     imagen:{
-
-        width: '10%',
-        
-
+        width: '15%',
     },
  
     

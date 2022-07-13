@@ -2,7 +2,7 @@
 import './fakeApi.css';
 
 //Array de obj
-const products  = [
+export const products  = [
     
     {id:'01', name:'Jean', categoria:"urban", description:"Verano", img:'https://static.dafiti.com.ar/p/wintertex-4984-680849-1-zoom.jpg', stock:3},
     {id:'02', name:'Jean', categoria:"urban", description:"Roturas", img:'https://static.dafiti.com.ar/p/vinson-2693-552849-1-zoom.jpg', stock:5},
@@ -20,10 +20,10 @@ const products  = [
       }else{
         reject('salio mal :(')
       }
-    },2000)
+    },3000)
 
     
 
-  })
-;
+  });
+
 

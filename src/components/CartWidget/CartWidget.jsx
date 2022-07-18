@@ -1,7 +1,9 @@
 import React from "react";
 import Cart from "../../assets/carrito.png"
 
-const CartWidget = () => {
+export const CartWidget = () => {
+
+  
 
     return (
        

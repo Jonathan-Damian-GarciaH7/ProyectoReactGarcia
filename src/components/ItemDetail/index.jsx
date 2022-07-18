@@ -1,18 +1,21 @@
-//import { Height } from "@mui/icons-material";
 import React from "react";
-//import './itemDetail.css'
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import ItemCount from '../../Itemcount/ItemCount'
+import { useCartContext } from '../../context/CartContext'
 
 
 export const ItemDetail = ({data}) => {
 
-    const onAdd = (mensaje) => {
-        setGoToCart(true);
-    }
-    const [goToCart, setGoToCart] = useState(false);
 
+    const [goToCart, setGoToCart] = useState(false);
+    const {addProduct} = useCartContext();
+
+    const onAdd = (quantity) => {
+        setGoToCart(true);
+        addProduct(data,quantity);
+    }
+    
 
 
     return(

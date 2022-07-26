@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import { getData } from './mocks/fakeApi'
 import {useParams} from 'react-router-dom';
+import {getFirestore, doc, getDoc} from 'firebase/firestore';
+
+
+
+/*
+
 
 const products  = [
     
@@ -11,6 +17,9 @@ const products  = [
   {id:'03', name:'Jean', categoria:"otros", description:"Oscuro", img:'https://static.dafiti.com.ar/p/vinson-6552-490765-1-zoom.jpg', stock:7},
   
 ]
+*/
+
+
 
 
 //export const ItemListContainer = ???
@@ -32,6 +41,15 @@ export const ItemListContainer = ({greeting}) => {
       }
     }
     useEffect(()=>{
+  const querydb =getFirestore();
+  const querydb =doc(querydb, 'products', '')
+
+
+
+    },{})
+
+
+      /*
       const getData = new Promise ((resolve, reject) =>{
         //acciones
         let condition = true
@@ -50,7 +68,7 @@ export const ItemListContainer = ({greeting}) => {
         getData.then(res => setProductList(res) );
       }
       getProducts()
-    },[ropaId])
+    },[ropaId])*/
   
   
   return (

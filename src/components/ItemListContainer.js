@@ -3,34 +3,18 @@ import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import { getData } from './mocks/fakeApi'
 import {useParams} from 'react-router-dom';
-import {getFirestore, doc, getDoc} from 'firebase/firestore';
+import {getFirestore, collection , getDocs} from 'firebase/firestore';
 
-
-
-/*
-
-
-const products  = [
-    
-  {id:'01', name:'Jean', categoria:"urban", description:"Verano", img:'https://static.dafiti.com.ar/p/wintertex-4984-680849-1-zoom.jpg', stock:3},
-  {id:'02', name:'Jean', categoria:"urban", description:"Roturas", img:'https://static.dafiti.com.ar/p/vinson-2693-552849-1-zoom.jpg', stock:5},
-  {id:'03', name:'Jean', categoria:"otros", description:"Oscuro", img:'https://static.dafiti.com.ar/p/vinson-6552-490765-1-zoom.jpg', stock:7},
-  
-]
-*/
-
-
-
-
-//export const ItemListContainer = ???
 
 
 export const ItemListContainer = ({greeting}) => {
-  const [productList, setProductList]=useState([])
-  const [loading, setLoading]=useState(true)
+  //const [productList, setProductList]=useState([])
+  //const [loading, setLoading]=useState(true)
   const {ropaId} = useParams();
-
-    const getProducts = async () => {
+  
+  const[data,setData]= useState([]);
+/*
+    const getProduct = async () => {
       try{
         const respuesta = await getData
         setProductList(respuesta)
@@ -40,26 +24,22 @@ export const ItemListContainer = ({greeting}) => {
         setLoading(false)
       }
     }
+  */  
     useEffect(()=>{
-  const querydb =getFirestore();
-  const querydb =doc(querydb, 'products', '')
+      const querydb =getFirestore();
+      const queryCollection = collection(querydb, 'products');
+      getDocs(queryCollection)
+      .then(res=>  setData(res.docs.map(product=>({id: product.id, ...product.data()}) )))
 
 
+    
 
-    },{})
-
-
-      /*
-      const getData = new Promise ((resolve, reject) =>{
-        //acciones
-        let condition = true
-        setTimeout(()=>{
-          if(condition){
-            resolve(products)
-          }else{
-            reject('salio mal :(')
+     /* const getData = new Promise (resolve =>{ 
+        setTimeout(()=> {
+         
+            resolve(products);
           }
-        },1000)
+        }, 1000);
       });
       
       if(ropaId){
@@ -67,17 +47,20 @@ export const ItemListContainer = ({greeting}) => {
       }else{
         getData.then(res => setProductList(res) );
       }
-      getProducts()
-    },[ropaId])*/
+    */
+
+
+
+    },[ropaId])
   
   
   return (
     <div>
       <h1>{greeting}</h1>
-      {loading ? <p>Cargando...</p> : <ItemList productList={productList}/> }
+      <ItemList data={data}/>
       
     </div>
-  )
+  );
 }
 
-export default ItemListContainer
+export default ItemListContainer;

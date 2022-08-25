@@ -25,7 +25,7 @@ export const ItemDetailContainer = () => {
 
     return (
         <div>
-        {loading ? <SpinnerDotted  style={styles.center} size={64} thickness={180} speed={80} color="rgba(255, 255, 255, 1)" />: <ItemDetail data={data} /> }
+        {loading ? <SpinnerDotted  style={styles.center} size={64} thickness={180} speed={80} color="rgba(0, 0, 0, 1)" />: <ItemDetail data={data} /> }
         <ToastContainer/>
         </div>
     );

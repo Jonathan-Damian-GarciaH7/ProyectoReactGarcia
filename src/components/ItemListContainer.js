@@ -43,7 +43,7 @@ export const ItemListContainer = ({greeting}) => {
   return (
     <div>
       <h1>{greeting}</h1>
-       {loading ? <SpinnerDotted style={styles.center} size={64} thickness={180} speed={80} color="rgba(255, 255, 255, 1)" />: <ItemList data={data}/> }
+       {loading ? <SpinnerDotted style={styles.center} size={64} thickness={180} speed={80} color="rgba(0, 0, 0, 1)" />: <ItemList data={data}/> }
       <ToastContainer/>
     </div>
   )

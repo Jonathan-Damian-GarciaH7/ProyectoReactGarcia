@@ -1,16 +1,20 @@
 import React from 'react'
 import Item from './Item'
+///////////////////////////////////////
+import './itemList.css';
 
-const ItemList = ({productList}) => {
-    // const {productList}=props
+
+
+const ItemList = ({data}) => {
   return (
     <div>
-        <div style={{color: 'black',display:'flex',justifyContent:'center'}}>
-        <h3>URBAN</h3>
+        <div style={{color:'black',display:'flex',justifyContent:'center'}}>
+        <h3 className='titu'>Temporada Verano</h3>
         </div>
-
-        <div style={{display:'flex',color: 'black', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap'}}>
-        {productList.map((product)=><Item key={product.id} product={product}/>)}
+        <div className='grid'>
+        <div className='ordena'>
+        {data.map((product)=><Item key={product.id} product={product}/>)}
+        </div>
         </div>
     </div>
   )

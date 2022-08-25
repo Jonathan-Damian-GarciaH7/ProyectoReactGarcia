@@ -1,0 +1,98 @@
+.centrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrar p {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.buyer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    
+}
+
+.precio {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    margin: 1rem 0;
+    color: rgb(0, 0, 0);
+}
+
+
+.buyer button {
+    margin-bottom: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.buyer .datos {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1.5px;
+    
+}
+
+
+
+
+.buyer .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.border{
+    border-top: 5px solid rgb(0, 0, 0);
+    width: 100%;
+}
+.buyer input {
+    font-size: 10px;
+    margin: .5rem;
+    text-align: center;
+    border:  2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+}
+
+
+
+.button2{
+    margin-top: 40px;
+}
+
+@media (min-width: 368px) {
+    .buyer {
+        margin: 2rem 0;
+    }
+
+    .buyer form input {
+
+        font-size: 25px;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+    .buyer {
+        margin: 0;
+    }
+    .buyer .datos {
+        font-size: 25px;
+    }
+
+    .buyer form input {
+
+        width: 20vw;
+        font-size: 20px;
+    }
+}

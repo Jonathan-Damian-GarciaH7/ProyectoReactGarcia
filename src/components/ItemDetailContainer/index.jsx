@@ -1,56 +1,44 @@
 import ItemDetail from "../ItemDetail";
 import React,{useEffect,useState} from "react";
-import { getData } from '../mocks/fakeApi';
 import {useParams} from 'react-router-dom';
 import {getFirestore, doc, getDoc} from 'firebase/firestore';
-/*
-const products =  [
-{id: 1, image:"https://static.dafiti.com.ar/p/levis-1631-767519-3-zoom.jpg", tittle: "Oferta Verano", price: "$5000"  },
-{id: 2, image:"https://static.dafiti.com.ar/p/levis-1621-767519-1-zoom.jpg", tittle: "Oferta Verano", price: "$5000"  },
-{id: 3, image:"https://static.dafiti.com.ar/p/levis-1626-767519-2-zoom.jpg", tittle: "Oferta Verano", price: "$5000"  }, 
-
-];
-*/
+import { ToastContainer,toast } from "react-toastify"
+import { SpinnerDotted } from 'spinners-react';
 
 
 export const ItemDetailContainer = () => {
-   
-    const [data, Setdata] =useState({})
-    const {detalleId} = useParams()
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    const { detalleId } = useParams();
 
-    
     useEffect(()=>{
-     /*  const getData = new Promise (resolve =>{
-          //acciones
-        
-          setTimeout(()=>{
-           
-              resolve(product)
-           
-          },1000);
-
-        })
-        */
-       
-
-        getData.then(res => Setdata(res)) 
-
-
-        const querydb =getFirestore();
-        const queryDoc =doc(querydb, 'products', 'l0n4T0w2pKNEMOqoHKZQ');
+        const querydb = getFirestore();
+        const queryDoc = doc(querydb, 'products' ,detalleId);
         getDoc(queryDoc)
-        .then(res => Setdata({id: res.id, ...res.data()}))
-      
-      
-        
-    }, [])
+        .then(res => setData({id: res.id, ...res.data()}))
+        .catch((error) => {
+            toast.error("Error al cargar productos");
+          })
+        .finally(() => setLoading(false))
 
-    return(
+    }, [detalleId]);
 
-          
-       <ItemDetail data={data} />
-         
+    return (
+        <div>
+        {loading ? <SpinnerDotted  style={styles.center} size={64} thickness={180} speed={80} color="rgba(255, 255, 255, 1)" />: <ItemDetail data={data} /> }
+        <ToastContainer/>
+        </div>
     );
-}
+};
 
 export default ItemDetailContainer;
+
+const styles = {
+   
+    center:{
+        display: 'block',
+        margin: 'auto'
+    },
+  
+    
+}

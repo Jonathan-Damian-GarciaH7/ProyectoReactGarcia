@@ -1,66 +1,63 @@
-
 import React, { useEffect, useState } from 'react'
-import ItemList from './ItemList'
-import { getData } from './mocks/fakeApi'
+import ItemList from '../components/ItemList'
+import {getFirestore,collection,getDocs,query,where} from 'firebase/firestore';
 import {useParams} from 'react-router-dom';
-import {getFirestore, collection , getDocs} from 'firebase/firestore';
-
+import { ToastContainer,toast } from "react-toastify"
+import { SpinnerDotted } from 'spinners-react';
 
 
 export const ItemListContainer = ({greeting}) => {
-  //const [productList, setProductList]=useState([])
-  //const [loading, setLoading]=useState(true)
-  const {ropaId} = useParams();
-  
-  const[data,setData]= useState([]);
-/*
-    const getProduct = async () => {
-      try{
-        const respuesta = await getData
-        setProductList(respuesta)
-      }catch(error){
-        console.log(error)
-      }finally{
-        setLoading(false)
-      }
-    }
-  */  
+
+  const [data, setData]=useState([])
+  const [loading, setLoading] = useState(true)
+  const {articuloId} = useParams();
+
+  /////////////////////////////partidoId x articuloId
     useEffect(()=>{
-      const querydb =getFirestore();
-      const queryCollection = collection(querydb, 'products');
-      getDocs(queryCollection)
-      .then(res=>  setData(res.docs.map(product=>({id: product.id, ...product.data()}) )))
-
-
-    
-
-     /* const getData = new Promise (resolve =>{ 
-        setTimeout(()=> {
-         
-            resolve(products);
-          }
-        }, 1000);
-      });
       
-      if(ropaId){
-        getData.then(res => setProductList(res.filter(product => product.categoria === ropaId)) );
-      }else{
-        getData.then(res => setProductList(res) );
-      }
-    */
-
-
-
-    },[ropaId])
+      const querydb = getFirestore();
+      const queryCollection = collection(querydb,'products');
   
+       if(articuloId){
+        const queryFilter = query(queryCollection, where('tipo', '==',articuloId))
+        getDocs(queryFilter)
+        .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data() }))))
+        .catch((error) => {
+					toast.error("Error al cargar productos");
+				  })
+				.finally(() => setLoading(false))
+       }
+        else{
+          getDocs(queryCollection)
+          .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data() }))))
+        
+				.catch((error) => {
+					toast.error("Error al cargar productos");
+				})
+				.finally(() => {
+					setLoading(false)
+				})
+       }
+    },[articuloId])
   
   return (
     <div>
       <h1>{greeting}</h1>
-      <ItemList data={data}/>
-      
+       {loading ? <SpinnerDotted style={styles.center} size={64} thickness={180} speed={80} color="rgba(255, 255, 255, 1)" />: <ItemList data={data}/> }
+      <ToastContainer/>
     </div>
-  );
+  )
 }
 
-export default ItemListContainer;
+export default ItemListContainer
+
+const styles = {
+   
+  center:{
+      display: 'block',
+      margin: 'auto'
+  
+  },
+
+  
+}

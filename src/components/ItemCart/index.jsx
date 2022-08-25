@@ -1,27 +1,22 @@
 import React from "react";
-import { useCartContext } from "../../Context/CartContext";
-import './itemCart.css';
+import { useCartContext } from "../../context/CartContext";
+import './index.css';
 
-const ItemCart = ({ product }) =>{
-const{ removeProduct } =useCartContext();
+const ItemCart = ({product}) => {
+    const { removeProduct } = useCartContext();
     return(
-
-        <div className="itemCart">
-            <img src={product.image} alt={product.title}/>
-        <div>
-        <p>Titulo: {product.tittle}</p>
-        <p>Cantidad: {product.quantity}</p> 
-        <p>Precio u.:{product.price}</p>
-        <p>Subtotal: ${product.quantity * product.price}</p>
-        <button onClick={()=>removeProduct(product.id)}>Eliminar</button>
-        </div>
-
-
-
+        <div className='itemCart'>
+            <img src={product.image} alt={product.description}/>
+            <div>
+                <p>Jean: {product.description} </p>
+                <p>Cantidad: {product.quantity} </p>
+                <p>Precio unitario: ${product.price} </p>
+                <p>Subtotal: ${product.quantity * product.price} </p>
+                <button className="bajar" onClick={() => removeProduct(product.id)}>Eliminar</button>
+            </div>
         </div>
 
     )
-
 }
 
 export default ItemCart

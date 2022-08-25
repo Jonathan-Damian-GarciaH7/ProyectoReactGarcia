@@ -10,19 +10,17 @@ const NavBar = () => {
 
 
     return (
-        
-        <nav style={styles.navfondoStyle}>
+        <header>
+             <nav style={styles.navfondoStyle}>
             
                <Link to='/'><img style={styles.imagen} src={logo} alt="" /> </Link> 
                
                     <NavLink style={styles.navStyle} to='/'>Inicio </NavLink>
-                    <NavLink style={styles.navStyle} to='/categoria/otros'>Ofertas</NavLink>
+                    <NavLink style={styles.navStyle} to='/tipo/oferta'>Ofertas</NavLink>
                     <NavLink style={styles.navStyle} to= '/categoria/Consultas'>Consultas</NavLink>
-                    <NavLink style={styles.navStyle} to="/CartWidget"><CartWidget/> </NavLink>
-                 
-           
-        </nav>
-             
+                    <NavLink style={styles.navStyle} to= '/cart'><CartWidget/> </NavLink>
+             </nav>
+        </header> 
     )
 }
 export default NavBar
@@ -34,19 +32,17 @@ const styles = {
 
     
  navfondoStyle:{
-    display:'flex',
     backgroundColor:'black',
+    display:'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
  },
 
 
    
   navStyle:{
-        color: 'white',
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        display:'flex',
-        backgroundColor:'black',
+    color: 'white',
+        
     
     },
     

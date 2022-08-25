@@ -1,0 +1,26 @@
+.itemCart{
+    display: flex;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    
+    max-width: 500px;
+    margin: 1rem auto;
+    color: rgb(0, 0, 0);
+    
+}
+
+.bajar{
+    margin-bottom: 25px;
+}
+
+.itemCart img{
+    width: 400px;
+    /*height: 120px;*/
+    height: 300px;
+    margin-right: 1rem;
+
+}
+
+.itemCart p{
+     margin-bottom: 3rem;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
